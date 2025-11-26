@@ -12,8 +12,8 @@ const { execSync } = require('child_process');
 
 const PACKAGE_ALIASES = [
   'portclear',    // Primary package
-  'pkill-port',
   'portstop',
+  'pkill-port',
   'port-nuke',
   'port-eject'
 ];
