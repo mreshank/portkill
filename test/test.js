@@ -5,7 +5,7 @@ const http = require('http');
 const portClear = require('../index.js');
 
 /**
- * Simple test suite for portkill
+ * Simple test suite for portclear
  */
 
 let testsPassed = 0;
@@ -160,7 +160,7 @@ async function testInvalidMethod() {
  */
 async function runTests() {
   console.log('===========================================');
-  console.log('         portkill Test Suite');
+  console.log('         portclear Test Suite');
   console.log('===========================================');
 
   try {

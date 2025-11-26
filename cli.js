@@ -134,19 +134,20 @@ function expandRange(start, end) {
  */
 function showHelp() {
   console.log(`
-${colorize('portkill', 'cyan')} - Kill process on any port ${colorize('(works with Node.js, Python, Go, Java, etc.)', 'gray')}
+${colorize('portclear', 'cyan')} - Kill process on any port ${colorize('(works with Node.js, Python, Go, Java, etc.)', 'gray')}
 
 ${colorize('USAGE:', 'yellow')}
-  npx portkill <port>                      Kill process on port
-  npx portkill <port1> <port2> ...         Kill processes on multiple ports
-  npx portkill <start>-<end>               Kill processes in port range
-  npx portkill -p <port>                   Kill process on port (flag syntax)
-  npx portkill -l <port>                   List process on port (preview mode)
-  npx portkill -p <port> -v                Verbose output
-  npx portkill -p <port> -m udp            Kill UDP process (default: tcp)
+  npx portclear <port>                     Kill process on port
+  npx portclear <port1> <port2> ...        Kill processes on multiple ports
+  npx portclear <start>-<end>              Kill processes in port range
+  npx portclear -p <port>                  Kill process on port (flag syntax)
+  npx portclear -l <port>                  List process on port (preview mode)
+  npx portclear -p <port> -v               Verbose output
+  npx portclear -p <port> -m udp           Kill UDP process (default: tcp)
 
 ${colorize('ALIASES:', 'yellow')}
   npx port-clear <port>
+  npx portkill <port>
   npx pkill-port <port>
   npx port-stop <port>
   npx port-nuke <port>
@@ -166,32 +167,32 @@ ${colorize('OPTIONS:', 'yellow')}
 
 ${colorize('EXAMPLES:', 'yellow')}
   ${colorize('# Basic usage', 'gray')}
-  npx portkill 3000
+  npx portclear 3000
   
   ${colorize('# Multiple ports', 'gray')}
-  npx portkill 3000 8080 9000
-  npx portkill -p 3000,8080,9000
+  npx portclear 3000 8080 9000
+  npx portclear -p 3000,8080,9000
   
   ${colorize('# Port ranges', 'gray')}
-  npx portkill 3000-3010
-  npx portkill --from 3000 --to 3010
+  npx portclear 3000-3010
+  npx portclear --from 3000 --to 3010
   
   ${colorize('# Preview mode (list without killing)', 'gray')}
-  npx portkill -l 3000
-  npx portkill --list 3000-3010
+  npx portclear -l 3000
+  npx portclear --list 3000-3010
   
   ${colorize('# Quiet mode for scripts', 'gray')}
-  npx portkill -q 3000
+  npx portclear -q 3000
   
   ${colorize('# JSON output for automation', 'gray')}
-  npx portkill --json 3000
-  npx portkill -l --json 3000-3010
+  npx portclear --json 3000
+  npx portclear -l --json 3000-3010
   
   ${colorize('# Verbose with process tree', 'gray')}
-  npx portkill -p 3000 -v --tree
+  npx portclear -p 3000 -v --tree
   
   ${colorize('# UDP protocol', 'gray')}
-  npx portkill -p 3000 -m udp
+  npx portclear -p 3000 -m udp
 
 ${colorize('LANGUAGE SUPPORT:', 'yellow')}
   ${colorize('Works with processes from ANY language:', 'cyan')}
@@ -203,16 +204,16 @@ ${colorize('LANGUAGE SUPPORT:', 'yellow')}
   ✓ PHP, Rust, C++, and more!
 
 ${colorize('PROGRAMMATIC USAGE:', 'yellow')}
-  const portkill = require('portkill');
+  const portclear = require('portclear');
   
   ${colorize('// Kill process', 'gray')}
-  await portkill(3000);
+  await portclear(3000);
   
   ${colorize('// With options', 'gray')}
-  await portkill(3000, { method: 'udp', list: true, tree: true });
+  await portclear(3000, { method: 'udp', list: true, tree: true });
   
   ${colorize('// Backward compatible', 'gray')}
-  await portkill(3000, 'udp');
+  await portclear(3000, 'udp');
 `);
 }
 

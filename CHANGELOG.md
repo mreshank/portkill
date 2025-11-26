@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Port Range Support** - Kill processes across a range of ports
-  - `port-clear 3000-3010`
-  - `port-clear --from 3000 --to 3010`
+  - `portclear 3000-3010`
+  - `portclear --from 3000 --to 3010`
 - **List/Preview Mode** - See what would be killed without killing (`-l`, `--list`)
 - **Quiet Mode** - Silent operation for scripts (`-q`, `--quiet`)
 - **JSON Output** - Machine-readable output for automation (`--json`)

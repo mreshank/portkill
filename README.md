@@ -1,13 +1,13 @@
-# portkill
+# portclear
 
 > Kill process running on any given port. **Works with Node.js, Python, Go, Java, Ruby, and ANY language.** Zero dependencies, cross-platform support for Windows, macOS, Linux & Unix.
 
-[![npm version](https://img.shields.io/npm/v/portkill.svg)](https://www.npmjs.com/package/portkill)
-[![npm downloads](https://img.shields.io/npm/dm/portkill.svg)](https://www.npmjs.com/package/portkill)
-[![license](https://img.shields.io/npm/l/portkill.svg)](https://github.com/mreshank/portkill/blob/main/LICENSE)
-[![package size](https://img.shields.io/bundlephobia/min/portkill.svg)](https://bundlephobia.com/package/portkill)
+[![npm version](https://img.shields.io/npm/v/portclear.svg)](https://www.npmjs.com/package/portclear)
+[![npm downloads](https://img.shields.io/npm/dm/portclear.svg)](https://www.npmjs.com/package/portclear)
+[![license](https://img.shields.io/npm/l/portclear.svg)](https://github.com/mreshank/portclear/blob/main/LICENSE)
+[![package size](https://img.shields.io/bundlephobia/min/portclear.svg)](https://bundlephobia.com/package/portclear)
 
-## Why portkill?
+## Why portclear?
 
 ✅ **Universal language support** - Works with processes from ANY language ⭐ NEW  
 ✅ **Zero dependencies** - Only uses Node.js built-in modules  
@@ -16,13 +16,13 @@
 ✅ **Port ranges** - Kill ports 3000-3010 in one command  
 ✅ **Preview mode** - List processes before killing  
 ✅ **TypeScript support** - Full type definitions included  
-✅ **Multiple aliases** - Available as `portkill`, `port-clear`, `pkill-port`, etc.  
+✅ **Multiple aliases** - Available as `portclear`, `port-clear`, `pkill-port`, etc.  
 ✅ **Flexible CLI** - Positional, flag-based, and range syntax  
 ✅ **Promise-based API** - Clean programmatic usage  
 
 ## Language Support
 
-**portkill works with processes from ANY programming language:**
+**portclear works with processes from ANY programming language:**
 
 | Language | Frameworks/Runtimes | ✓ Supported |
 |----------|---------------------|-------------|
@@ -39,7 +39,7 @@
 | **Any other language** | If it uses a port, we can kill it! | ✅ |
 
 **How it works:**  
-portkill doesn't care what language your process is written in. It finds what's using a port at the OS level and kills it. Simple and universal.
+portclear doesn't care what language your process is written in. It finds what's using a port at the OS level and kills it. Simple and universal.
 
 ## Installation
 
@@ -47,7 +47,7 @@ portkill doesn't care what language your process is written in. It finds what's 
 
 ```bash
 # Use any of these aliases:
-npx portkill <port>
+npx portclear <port>
 npx port-clear <port>
 npx pkill-port <port>
 npx port-stop <port>
@@ -58,29 +58,29 @@ npx port-eject <port>
 ### Global Installation
 
 ```bash
-npm install -g portkill
+npm install -g portclear
 ```
 
 ### Project Dependency
 
 ```bash
-npm install portkill
+npm install portclear
 ```
 
 ## Quick Start
 
 ```bash
 # Kill process on port
-npx portkill 3000
+npx portclear 3000
 
 # Kill port range
-npx portkill 3000-3010
+npx portclear 3000-3010
 
 # List processes (preview mode)
-npx portkill -l 3000
+npx portclear -l 3000
 
 # Quiet mode for scripts
-npx portkill -q 3000
+npx portclear -q 3000
 ```
 
 ## Usage
@@ -89,46 +89,46 @@ npx portkill -q 3000
 
 **Basic usage:**
 ```bash
-npx portkill 3000
+npx portclear 3000
 ```
 
 **Port ranges:**
 ```bash
 # Range syntax
-npx portkill 3000-3010
+npx portclear 3000-3010
 
 # Flag syntax
-npx portkill --from 3000 --to 3010
+npx portclear --from 3000 --to 3010
 ```
 
 **Multiple ports:**
 ```bash
 # Space-separated
-npx portkill 3000 8080 9000
+npx portclear 3000 8080 9000
 
 # Comma-separated
-npx portkill 3000,8080,9000
+npx portclear 3000,8080,9000
 ```
 
 **List/Preview mode:**
 ```bash
 # See what's running without killing
-npx portkill -l 3000
+npx portclear -l 3000
 
 # List range of ports
-npx portkill --list 3000-3010
+npx portclear --list 3000-3010
 
 # With verbose output
-npx portkill -l 3000 -v
+npx portclear -l 3000 -v
 ```
 
 **Quiet mode:**
 ```bash
 # Perfect for CI/CD scripts
-npx portkill -q 3000
+npx portclear -q 3000
 
 # Only shows errors, exits with proper codes
-if npx portkill -q 3000; then
+if npx portclear -q 3000; then
   echo "Port cleared successfully"
 fi
 ```
@@ -136,53 +136,53 @@ fi
 **JSON output:**
 ```bash
 # Machine-readable output
-npx portkill --json 3000
+npx portclear --json 3000
 
 # Combine with list mode
-npx portkill -l --json 3000-3010
+npx portclear -l --json 3000-3010
 ```
 
 **Advanced options:**
 ```bash
 # Kill UDP process
-npx portkill -p 3000 -m udp
+npx portclear -p 3000 -m udp
 
 # Verbose output with process details
-npx portkill -p 3000 -v
+npx portclear -p 3000 -v
 
 # Kill process tree (including children)
-npx portkill --tree 3000
+npx portclear --tree 3000
 ```
 
 ### Programmatic Usage
 
 **Basic:**
 ```javascript
-const portkill = require('portkill');
+const portclear = require('portclear');
 
 // Kill process on port 3000
-await portkill(3000);
+await portclear(3000);
 ```
 
 **With options:**
 ```javascript
 // New options object API (v1.0+)
-await portkill(3000, {
+await portclear(3000, {
   method: 'udp',    // 'tcp' or 'udp'
   list: true,       // Preview mode
   tree: false       // Kill process tree
 });
 
 // Backward compatible (still works)
-await portkill(3000, 'udp');
+await portclear(3000, 'udp');
 ```
 
 **TypeScript:**
 ```typescript
-import portkill, { PortClearOptions, PortClearResult } from 'portkill';
+import portclear, { PortClearOptions, PortClearResult } from 'portclear';
 
 // Full type safety
-const result: PortClearResult = await portkill(3000, {
+const result: PortClearResult = await portclear(3000, {
   method: 'tcp',
   list: true
 });
@@ -195,7 +195,7 @@ if (result.pid) {
 **Error handling:**
 ```javascript
 try {
-  await portkill(3000);
+  await portclear(3000);
   console.log('Port 3000 cleared successfully');
 } catch (error) {
   if (error.message.includes('Permission denied')) {
@@ -211,7 +211,7 @@ try {
 **Preview before killing:**
 ```javascript
 // List what's running first
-const preview = await portkill(3000, { list: true });
+const preview = await portclear(3000, { list: true });
 
 if (!preview.error) {
   console.log(`Found ${preview.name} (PID: ${preview.pid})`);
@@ -219,7 +219,7 @@ if (!preview.error) {
   // Confirm and kill
   const confirmed = await askUser('Kill this process?');
   if (confirmed) {
-    await portkill(3000);
+    await portclear(3000);
   }
 }
 ```
@@ -230,60 +230,60 @@ if (!preview.error) {
 
 ```bash
 # Flask typically runs on 5000
-npx portkill 5000
+npx portclear 5000
 
 # Django on 8000
-npx portkill 8000
+npx portclear 8000
 ```
 
 ### Kill Go Server
 
 ```bash
 # Kill Go app on port 8080
-npx portkill 8080
+npx portclear 8080
 ```
 
 ### Kill Java Spring Boot App
 
 ```bash
 # Spring Boot default port
-npx portkill 8080
+npx portclear 8080
 
 # Or custom port
-npx portkill 9090
+npx portclear 9090
 ```
 
 ### Kill Ruby Rails Server
 
 ```bash
 # Rails default port
-npx portkill 3000
+npx portclear 3000
 ```
 
 ### Free Up Docker Ports
 
 ```bash
 # Kill common Docker ports
-npx portkill 2375 2376 5000 8000-8100
+npx portclear 2375 2376 5000 8000-8100
 ```
 
 ### Clean Up Multiple Dev Environments
 
 ```bash
 # Kill all common dev ports at once
-npx portkill 3000-3010 5000 8000 8080 9000
+npx portclear 3000-3010 5000 8000 8080 9000
 ```
 
 ### Integration in Node.js Apps
 
 ```javascript
-const portkill = require('portkill');
+const portclear = require('portclear');
 const express = require('express');
 
 async function startServer(port = 3000) {
   try {
     // Clear port before starting
-    await portkill(port, { quiet: true });
+    await portclear(port, { quiet: true });
     
     const app = express();
     app.listen(port, () => {
@@ -301,12 +301,12 @@ startServer();
 ### Python Integration
 
 ```python
-# Use subprocess to call portkill from Python
+# Use subprocess to call portclear from Python
 import subprocess
 
 def clear_port(port):
     try:
-        subprocess.run(['npx', 'portkill', '-q', str(port)], check=True)
+        subprocess.run(['npx', 'portclear', '-q', str(port)], check=True)
         print(f"Port {port} cleared")
     except subprocess.CalledProcessError:
         print(f"Could not clear port {port}")
@@ -319,11 +319,11 @@ clear_port(5000)
 ```json
 {
   "scripts": {
-    "clean": "portkill -q 3000 8080",
+    "clean": "portclear -q 3000 8080",
     "prestart": "npm run clean",
     "start": "node server.js",
-    "dev": "portkill -q 3000 && nodemon server.js",
-    "kill-all": "portkill 3000-9000"
+    "dev": "portclear -q 3000 && nodemon server.js",
+    "kill-all": "portclear 3000-9000"
   }
 }
 ```
@@ -345,7 +345,7 @@ clear_port(5000)
 
 ## API
 
-### `portkill(port, methodOrOptions)`
+### `portclear(port, methodOrOptions)`
 
 Kill process running on specified port.
 
@@ -385,7 +385,7 @@ Kill process running on specified port.
 
 ## Comparison with Alternatives
 
-| Feature | portkill | kill-port | killport | port-kill |
+| Feature | portclear | kill-port | killport | port-kill |
 |---------|----------|-----------|----------|-----------|
 | **Size (packed)** | **~10 kB** | ~60 kB | ~1.5 kB | ~35 kB |
 | **Dependencies** | **0** | 2 | 2 | 0 |
@@ -408,10 +408,10 @@ Kill process running on specified port.
 **Solution:**
 ```bash
 # macOS/Linux
-sudo npx portkill 3000
+sudo npx portclear 3000
 
 # Windows (Run terminal as Administrator)
-npx portkill 3000
+npx portclear 3000
 ```
 
 ### Port Still in Use After Killing
@@ -420,10 +420,10 @@ Some applications may take time to release ports. Wait a few seconds and verify:
 
 ```bash
 # List to check if process is gone
-npx portkill -l 3000
+npx portclear -l 3000
 
 # Force kill with tree option
-npx portkill --tree 3000
+npx portclear --tree 3000
 ```
 
 ### Finding What's Using a Port
@@ -432,13 +432,13 @@ Use list mode to see details:
 
 ```bash
 # Basic info
-npx portkill -l 3000
+npx portclear -l 3000
 
 # Verbose with all details
-npx portkill -l 3000 -v
+npx portclear -l 3000 -v
 
 # JSON for scripting
-npx portkill -l --json 3000
+npx portclear -l --json 3000
 ```
 
 ## Requirements
@@ -461,13 +461,13 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Issues
 
-If you encounter any problems, please [open an issue](https://github.com/mreshank/portkill/issues) on GitHub.
+If you encounter any problems, please [open an issue](https://github.com/mreshank/portclear/issues) on GitHub.
 
 ## Package Aliases
 
 This package is available under multiple names for convenience:
 
-- [portkill](https://www.npmjs.com/package/portkill) (main)
+- [portclear](https://www.npmjs.com/package/portclear) (main)
 - [port-clear](https://www.npmjs.com/package/port-clear)
 - [pkill-port](https://www.npmjs.com/package/pkill-port)
 - [port-stop](https://www.npmjs.com/package/port-stop)

@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * Helper script to publish portkill under multiple package names
+ * Helper script to publish portclear under multiple package names
  * Usage: node publish-all.js
  */
 
@@ -11,8 +11,9 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const PACKAGE_ALIASES = [
-  'portkill',     // Primary package (was blocked before, now main!)
+  'portclear',    // Primary package
   'port-clear',
+  'portkill',
   'pkill-port',
   'port-stop',
   'port-nuke',
@@ -25,7 +26,7 @@ const PACKAGE_BACKUP_PATH = path.join(__dirname, 'package.json.backup');
 // Read original package.json
 const originalPackage = JSON.parse(fs.readFileSync(PACKAGE_JSON_PATH, 'utf8'));
 
-console.log('🚀 Multi-Package Publisher for portkill\n');
+console.log('🚀 Multi-Package Publisher for portclear\n');
 console.log('This will publish under the following package names:');
 PACKAGE_ALIASES.forEach((alias, i) => console.log(`  ${i + 1}. ${alias}`));
 console.log('');
@@ -44,12 +45,12 @@ for (const alias of PACKAGE_ALIASES) {
     name: alias,
     repository: {
       ...originalPackage.repository,
-      url: originalPackage.repository.url.replace('portkill', alias)
+      url: originalPackage.repository.url.replace('portclear', alias)
     },
     bugs: {
-      url: originalPackage.bugs.url.replace('portkill', alias)
+      url: originalPackage.bugs.url.replace('portclear', alias)
     },
-    homepage: originalPackage.homepage.replace('portkill', alias)
+    homepage: originalPackage.homepage.replace('portclear', alias)
   };
   
   fs.writeFileSync(PACKAGE_JSON_PATH, JSON.stringify(modifiedPackage, null, 2));
