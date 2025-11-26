@@ -1,64 +1,86 @@
-# port-clear
+# portkill
 
-> Kill process running on any given port. Zero dependencies, cross-platform support for Windows, macOS, Linux & Unix.
+> Kill process running on any given port. **Works with Node.js, Python, Go, Java, Ruby, and ANY language.** Zero dependencies, cross-platform support for Windows, macOS, Linux & Unix.
 
-[![npm version](https://img.shields.io/npm/v/port-clear.svg)](https://www.npmjs.com/package/port-clear)
-[![npm downloads](https://img.shields.io/npm/dm/port-clear.svg)](https://www.npmjs.com/package/port-clear)
-[![license](https://img.shields.io/npm/l/port-clear.svg)](https://github.com/mreshank/port-clear/blob/main/LICENSE)
-[![package size](https://img.shields.io/bundlephobia/min/port-clear.svg)](https://bundlephobia.com/package/port-clear)
+[![npm version](https://img.shields.io/npm/v/portkill.svg)](https://www.npmjs.com/package/portkill)
+[![npm downloads](https://img.shields.io/npm/dm/portkill.svg)](https://www.npmjs.com/package/portkill)
+[![license](https://img.shields.io/npm/l/portkill.svg)](https://github.com/mreshank/portkill/blob/main/LICENSE)
+[![package size](https://img.shields.io/bundlephobia/min/portkill.svg)](https://bundlephobia.com/package/portkill)
 
-## Why port-clear?
+## Why portkill?
 
+✅ **Universal language support** - Works with processes from ANY language ⭐ NEW  
 ✅ **Zero dependencies** - Only uses Node.js built-in modules  
-✅ **Smallest package** - ~8 kB packed (vs competitors at 60-174 kB)  
+✅ **Smallest package** - ~10 kB (vs competitors at 60-174 kB)  
 ✅ **Cross-platform** - Windows, macOS, Linux, Unix support  
-✅ **Port ranges** - Kill ports 3000-3010 in one command ⭐ NEW  
-✅ **Preview mode** - List processes before killing ⭐ NEW  
-✅ **TypeScript support** - Full type definitions included ⭐ NEW  
-✅ **Multiple aliases** - Available as `port-clear`, `portkill`, `pkill-port`, etc.  
+✅ **Port ranges** - Kill ports 3000-3010 in one command  
+✅ **Preview mode** - List processes before killing  
+✅ **TypeScript support** - Full type definitions included  
+✅ **Multiple aliases** - Available as `portkill`, `port-clear`, `pkill-port`, etc.  
 ✅ **Flexible CLI** - Positional, flag-based, and range syntax  
 ✅ **Promise-based API** - Clean programmatic usage  
 
+## Language Support
+
+**portkill works with processes from ANY programming language:**
+
+| Language | Frameworks/Runtimes | ✓ Supported |
+|----------|---------------------|-------------|
+| **JavaScript/TypeScript** | Node.js, Deno, Bun, Express, Next.js, React dev servers | ✅ |
+| **Python** | Flask, Django, FastAPI, Streamlit, Jupyter | ✅ |
+| **Go** | Gin, Echo, Fiber, net/http | ✅ |
+| **Java/Kotlin** | Spring Boot, Micronaut, Ktor, Tomcat | ✅ |
+| **Ruby** | Rails, Sinatra, Puma | ✅ |
+| **PHP** | Laravel, Symfony, built-in server | ✅ |
+| **Rust** | Actix, Rocket, Axum | ✅ |
+| **C/C++** | Any HTTP server or TCP/UDP service | ✅ |
+| **.NET/C#** | ASP.NET, Kestrel | ✅ |
+| **Elixir** | Phoenix | ✅ |
+| **Any other language** | If it uses a port, we can kill it! | ✅ |
+
+**How it works:**  
+portkill doesn't care what language your process is written in. It finds what's using a port at the OS level and kills it. Simple and universal.
+
 ## Installation
-
-### Global Installation
-
-```bash
-npm install -g port-clear
-```
 
 ### One-time Use (Recommended)
 
 ```bash
 # Use any of these aliases:
-npx port-clear <port>
 npx portkill <port>
+npx port-clear <port>
 npx pkill-port <port>
 npx port-stop <port>
 npx port-nuke <port>
 npx port-eject <port>
 ```
 
+### Global Installation
+
+```bash
+npm install -g portkill
+```
+
 ### Project Dependency
 
 ```bash
-npm install port-clear
+npm install portkill
 ```
 
 ## Quick Start
 
 ```bash
 # Kill process on port
-npx port-clear 3000
+npx portkill 3000
 
 # Kill port range
-npx port-clear 3000-3010
+npx portkill 3000-3010
 
 # List processes (preview mode)
-npx port-clear -l 3000
+npx portkill -l 3000
 
 # Quiet mode for scripts
-npx port-clear -q 3000
+npx portkill -q 3000
 ```
 
 ## Usage
@@ -67,46 +89,46 @@ npx port-clear -q 3000
 
 **Basic usage:**
 ```bash
-npx port-clear 3000
+npx portkill 3000
 ```
 
 **Port ranges:**
 ```bash
 # Range syntax
-npx port-clear 3000-3010
+npx portkill 3000-3010
 
 # Flag syntax
-npx port-clear --from 3000 --to 3010
+npx portkill --from 3000 --to 3010
 ```
 
 **Multiple ports:**
 ```bash
 # Space-separated
-npx port-clear 3000 8080 9000
+npx portkill 3000 8080 9000
 
 # Comma-separated
-npx port-clear 3000,8080,9000
+npx portkill 3000,8080,9000
 ```
 
 **List/Preview mode:**
 ```bash
 # See what's running without killing
-npx port-clear -l 3000
+npx portkill -l 3000
 
 # List range of ports
-npx port-clear --list 3000-3010
+npx portkill --list 3000-3010
 
 # With verbose output
-npx port-clear -l 3000 -v
+npx portkill -l 3000 -v
 ```
 
 **Quiet mode:**
 ```bash
 # Perfect for CI/CD scripts
-npx port-clear -q 3000
+npx portkill -q 3000
 
 # Only shows errors, exits with proper codes
-if npx port-clear -q 3000; then
+if npx portkill -q 3000; then
   echo "Port cleared successfully"
 fi
 ```
@@ -114,53 +136,53 @@ fi
 **JSON output:**
 ```bash
 # Machine-readable output
-npx port-clear --json 3000
+npx portkill --json 3000
 
 # Combine with list mode
-npx port-clear -l --json 3000-3010
+npx portkill -l --json 3000-3010
 ```
 
 **Advanced options:**
 ```bash
 # Kill UDP process
-npx port-clear -p 3000 -m udp
+npx portkill -p 3000 -m udp
 
 # Verbose output with process details
-npx port-clear -p 3000 -v
+npx portkill -p 3000 -v
 
 # Kill process tree (including children)
-npx port-clear --tree 3000
+npx portkill --tree 3000
 ```
 
 ### Programmatic Usage
 
 **Basic:**
 ```javascript
-const portClear = require('port-clear');
+const portkill = require('portkill');
 
 // Kill process on port 3000
-await portClear(3000);
+await portkill(3000);
 ```
 
 **With options:**
 ```javascript
 // New options object API (v1.0+)
-await portClear(3000, {
+await portkill(3000, {
   method: 'udp',    // 'tcp' or 'udp'
   list: true,       // Preview mode
   tree: false       // Kill process tree
 });
 
 // Backward compatible (still works)
-await portClear(3000, 'udp');
+await portkill(3000, 'udp');
 ```
 
 **TypeScript:**
 ```typescript
-import portClear, { PortClearOptions, PortClearResult } from 'port-clear';
+import portkill, { PortClearOptions, PortClearResult } from 'portkill';
 
 // Full type safety
-const result: PortClearResult = await portClear(3000, {
+const result: PortClearResult = await portkill(3000, {
   method: 'tcp',
   list: true
 });
@@ -173,7 +195,7 @@ if (result.pid) {
 **Error handling:**
 ```javascript
 try {
-  await portClear(3000);
+  await portkill(3000);
   console.log('Port 3000 cleared successfully');
 } catch (error) {
   if (error.message.includes('Permission denied')) {
@@ -189,7 +211,7 @@ try {
 **Preview before killing:**
 ```javascript
 // List what's running first
-const preview = await portClear(3000, { list: true });
+const preview = await portkill(3000, { list: true });
 
 if (!preview.error) {
   console.log(`Found ${preview.name} (PID: ${preview.pid})`);
@@ -197,7 +219,111 @@ if (!preview.error) {
   // Confirm and kill
   const confirmed = await askUser('Kill this process?');
   if (confirmed) {
-    await portClear(3000);
+    await portkill(3000);
+  }
+}
+```
+
+## Real-World Examples
+
+### Kill Python Flask/Django Dev Server
+
+```bash
+# Flask typically runs on 5000
+npx portkill 5000
+
+# Django on 8000
+npx portkill 8000
+```
+
+### Kill Go Server
+
+```bash
+# Kill Go app on port 8080
+npx portkill 8080
+```
+
+### Kill Java Spring Boot App
+
+```bash
+# Spring Boot default port
+npx portkill 8080
+
+# Or custom port
+npx portkill 9090
+```
+
+### Kill Ruby Rails Server
+
+```bash
+# Rails default port
+npx portkill 3000
+```
+
+### Free Up Docker Ports
+
+```bash
+# Kill common Docker ports
+npx portkill 2375 2376 5000 8000-8100
+```
+
+### Clean Up Multiple Dev Environments
+
+```bash
+# Kill all common dev ports at once
+npx portkill 3000-3010 5000 8000 8080 9000
+```
+
+### Integration in Node.js Apps
+
+```javascript
+const portkill = require('portkill');
+const express = require('express');
+
+async function startServer(port = 3000) {
+  try {
+    // Clear port before starting
+    await portkill(port, { quiet: true });
+    
+    const app = express();
+    app.listen(port, () => {
+      console.log(`Server running on port ${port}`);
+    });
+  } catch (error) {
+    console.error('Could not start server:', error.message);
+    process.exit(1);
+  }
+}
+
+startServer();
+```
+
+### Python Integration
+
+```python
+# Use subprocess to call portkill from Python
+import subprocess
+
+def clear_port(port):
+    try:
+        subprocess.run(['npx', 'portkill', '-q', str(port)], check=True)
+        print(f"Port {port} cleared")
+    except subprocess.CalledProcessError:
+        print(f"Could not clear port {port}")
+
+clear_port(5000)
+```
+
+### Package.json Scripts
+
+```json
+{
+  "scripts": {
+    "clean": "portkill -q 3000 8080",
+    "prestart": "npm run clean",
+    "start": "node server.js",
+    "dev": "portkill -q 3000 && nodemon server.js",
+    "kill-all": "portkill 3000-9000"
   }
 }
 ```
@@ -219,7 +345,7 @@ if (!preview.error) {
 
 ## API
 
-### `portClear(port, methodOrOptions)`
+### `portkill(port, methodOrOptions)`
 
 Kill process running on specified port.
 
@@ -248,62 +374,6 @@ Kill process running on specified port.
 **Throws:**
 - `Error` - If port is invalid, no process is running, or kill operation fails
 
-## Advanced Usage
-
-### Port Ranges in Scripts
-
-```javascript
-// Kill all dev server ports
-const portRange = Array.from({ length: 11 }, (_, i) => 3000 + i);
-
-for (const port of portRange) {
-  try {
-    await portClear(port, { quiet: true });
-  } catch (error) {
-    // Ignore errors (port might not be in use)
-  }
-}
-```
-
-### Pre-deployment Cleanup
-
-```javascript
-// Clean up before starting services
-const portsToClean = [3000, 8080, 8081, 9000];
-
-console.log('Cleaning up ports...');
-await Promise.all(
-  portsToClean.map(port => 
-    portClear(port).catch(() => {}) // Ignore errors
-  )
-);
-console.log('Ports cleared, starting services...');
-```
-
-### CI/CD Integration
-
-```yaml
-# .github/workflows/test.yml
-- name: Clear ports before tests
-  run: npx port-clear -q 3000 8080 || true
-
-- name: Run tests
-  run: npm test
-```
-
-### Development Tools Integration
-
-```json
-{
-  "scripts": {
-    "predev": "port-clear -q 3000",
-    "dev": "next dev",
-    "clean-ports": "port-clear 3000-3010",
-    "kill-all": "port-clear 3000,8080,8081,9000"
-  }
-}
-```
-
 ## Platform Support
 
 | Platform | Supported | Commands Used |
@@ -315,10 +385,11 @@ console.log('Ports cleared, starting services...');
 
 ## Comparison with Alternatives
 
-| Feature | port-clear | kill-port | killport | port-kill |
-|---------|-----------|-----------|----------|-----------|
-| **Size (packed)** | **~8 kB** | ~60 kB | ~1.5 kB | ~35 kB |
+| Feature | portkill | kill-port | killport | port-kill |
+|---------|----------|-----------|----------|-----------|
+| **Size (packed)** | **~10 kB** | ~60 kB | ~1.5 kB | ~35 kB |
 | **Dependencies** | **0** | 2 | 2 | 0 |
+| **Language Universal** | **✅** | ✅ | ✅ | ✅ |
 | **Port Ranges** | **✅** | ❌ | ❌ | ❌ |
 | **Preview Mode** | **✅** | ❌ | ❌ | ✅ |
 | **TypeScript** | **✅** | ⚠️ (@types) | ❌ | ❌ |
@@ -337,10 +408,10 @@ console.log('Ports cleared, starting services...');
 **Solution:**
 ```bash
 # macOS/Linux
-sudo npx port-clear 3000
+sudo npx portkill 3000
 
 # Windows (Run terminal as Administrator)
-npx port-clear 3000
+npx portkill 3000
 ```
 
 ### Port Still in Use After Killing
@@ -349,10 +420,10 @@ Some applications may take time to release ports. Wait a few seconds and verify:
 
 ```bash
 # List to check if process is gone
-npx port-clear -l 3000
+npx portkill -l 3000
 
 # Force kill with tree option
-npx port-clear --tree 3000
+npx portkill --tree 3000
 ```
 
 ### Finding What's Using a Port
@@ -361,70 +432,13 @@ Use list mode to see details:
 
 ```bash
 # Basic info
-npx port-clear -l 3000
+npx portkill -l 3000
 
 # Verbose with all details
-npx port-clear -l 3000 -v
+npx portkill -l 3000 -v
 
 # JSON for scripting
-npx port-clear -l --json 3000
-```
-
-## Examples
-
-### Free Up Development Ports
-
-```bash
-# Kill all common dev ports
-npx port-clear 3000 3001 5000 8000 8080
-
-# Or use ranges
-npx port-clear 3000-3005 8000-8005
-```
-
-### Clean Up Docker Ports
-
-```bash
-# Kill common Docker ports
-npx port-clear 2375 2376 5000 8000-8100
-```
-
-### Integration in Node.js Apps
-
-```javascript
-const portClear = require('port-clear');
-const express = require('express');
-
-async function startServer(port = 3000) {
-  try {
-    // Clear port before starting
-    await portClear(port, { quiet: true });
-    
-    const app = express();
-    app.listen(port, () => {
-      console.log(`Server running on port ${port}`);
-    });
-  } catch (error) {
-    console.error('Could not start server:', error.message);
-    process.exit(1);
-  }
-}
-
-startServer();
-```
-
-### Package.json Scripts
-
-```json
-{
-  "scripts": {
-    "clean": "port-clear -q 3000 8080",
-    "prestart": "npm run clean",
-    "start": "node server.js",
-    "dev": "port-clear -q 3000 && nodemon server.js",
-    "kill-all": "port-clear 3000-9000"
-  }
-}
+npx portkill -l --json 3000
 ```
 
 ## Requirements
@@ -447,13 +461,14 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Issues
 
-If you encounter any problems, please [open an issue](https://github.com/mreshank/port-clear/issues) on GitHub.
+If you encounter any problems, please [open an issue](https://github.com/mreshank/portkill/issues) on GitHub.
 
 ## Package Aliases
 
 This package is available under multiple names for convenience:
 
-- [port-clear](https://www.npmjs.com/package/port-clear) (main)
+- [portkill](https://www.npmjs.com/package/portkill) (main)
+- [port-clear](https://www.npmjs.com/package/port-clear)
 - [pkill-port](https://www.npmjs.com/package/pkill-port)
 - [port-stop](https://www.npmjs.com/package/port-stop)
 - [port-nuke](https://www.npmjs.com/package/port-nuke)
@@ -467,4 +482,4 @@ See [CHANGELOG.md](CHANGELOG.md) for a detailed list of changes.
 
 ---
 
-Made with ❤️ by developers, for developers.
+**Made with ❤️ by developers, for developers. Works with every language. 🌍**

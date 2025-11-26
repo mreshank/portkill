@@ -11,8 +11,8 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const PACKAGE_ALIASES = [
-  'port-clear',   // Primary package
-  'portkill',
+  'portkill',     // Primary package (was blocked before, now main!)
+  'port-clear',
   'pkill-port',
   'port-stop',
   'port-nuke',
@@ -25,7 +25,7 @@ const PACKAGE_BACKUP_PATH = path.join(__dirname, 'package.json.backup');
 // Read original package.json
 const originalPackage = JSON.parse(fs.readFileSync(PACKAGE_JSON_PATH, 'utf8'));
 
-console.log('🚀 Multi-Package Publisher for port-clear\n');
+console.log('🚀 Multi-Package Publisher for portkill\n');
 console.log('This will publish under the following package names:');
 PACKAGE_ALIASES.forEach((alias, i) => console.log(`  ${i + 1}. ${alias}`));
 console.log('');
