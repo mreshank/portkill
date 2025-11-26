@@ -939,7 +939,7 @@ node test/test.js
 
 ## License
 
-**MIT License** © 2024 Reshank M
+**MIT License** © 2024 [Eshank Tyagi](https://www.eshank.tech/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -955,7 +955,7 @@ Built with care for the developer community. Special thanks to all contributors 
 
 **Repository**: [github.com/mreshank/portclear](https://github.com/mreshank/portclear)  
 **npm Package**: [npmjs.com/package/portclear](https://www.npmjs.com/package/portclear)  
-**Author**: [Reshank M](https://github.com/mreshank)
+**Author**: [Eshank Tyagi](https://eshank.tech) • [GitHub](https://github.com/mreshank)
 
 ---
 
