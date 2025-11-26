@@ -146,8 +146,6 @@ ${colorize('USAGE:', 'yellow')}
   npx portclear -p <port> -m udp           Kill UDP process (default: tcp)
 
 ${colorize('ALIASES:', 'yellow')}
-  npx port-clear <port>
-  npx portkill <port>
   npx pkill-port <port>
   npx portstop <port>
   npx port-nuke <port>
